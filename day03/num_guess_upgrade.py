@@ -17,7 +17,7 @@ def main():
     """
     guess_count = 0
     game_on = True
-    cheat_mark =":)"
+    cheat_mark =" :)"
     while True:
         if game_on:
             game_num = ran_num(MIN, MAX)
@@ -29,12 +29,13 @@ def main():
         if user_guess == CHEATER:
             print(f"Hey. Don't tell anyone, but the number is {game_num}.")
             cheat_mark = " :|"
+            guess_count -= 1
             continue
         if user_guess == EXIT:
             print(GOODBYE)
             break
         if user_guess == NEW_GAME:
-            game_on = False
+            game_on = True
             print(NEW_GAME_MSG)
             continue
         if not_num(user_guess):
