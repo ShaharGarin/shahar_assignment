@@ -35,9 +35,14 @@ def main():
             print(GOODBYE)
             break
         if user_guess == NEW_GAME:
-            game_on = True
-            print(NEW_GAME_MSG)
-            continue
+            another = play_again()
+            if another:
+                game_on = True
+                print(NEW_GAME_MSG)
+                continue
+            if not another:
+                print(GOODBYE)
+                break
         if not_num(user_guess):
             continue
         user_num = int(float(user_guess))
