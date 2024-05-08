@@ -110,7 +110,7 @@ def check_num(input, target):
     if input < target:
         return "smaller"
     if input == target:
-        return False
+        return 0
 
 def play_again():
     """
