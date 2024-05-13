@@ -1,0 +1,8 @@
+this is a file i need to reads
+it has several lines
+some of them have 435234 numbers 341432\n\n\n\ n\n\n
+some don't
+some have wierd @!#(*)#$_ symbols
+1231231
+5252
+233
