@@ -7,4 +7,4 @@ After doing this for each file in a folder given by the user, the program calcul
 
 In the future, other statistics could be added to this file. For example, a t test between the samples for each of the ratios calculated, or a correlation between the ratios and the compartment coverage.
 
-A testing file (["test_xl_test_fun.py"](test_xl_test_fun.py)) and a file with the tested functions (["xl_test_fun.py"](xl_test_fun.py)), as well as sample files ("DEL" and "WT") are also provided.
+A testing file (["test_xl_test_fun.py"](test_xl_test_fun.py)) and a file with the tested functions (["xl_test_fun.py"](xl_test_fun.py)), as well as sample csv files ("DEL" and "WT") are also provided.
