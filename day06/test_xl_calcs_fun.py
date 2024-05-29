@@ -1,4 +1,4 @@
-import xl_test_fun as xc
+import xl_calcs_fun as xc
 import numpy as np
 from scipy import stats
 
