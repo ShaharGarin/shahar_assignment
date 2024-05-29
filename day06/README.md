@@ -7,4 +7,4 @@ After doing this for each file in a folder given by the user, the program calcul
 
 In the future, other statistics could be added to this file. For example, a t test between the samples for each of the ratios calculated, or a correlation between the ratios and the compartment coverage.
 
-The actual file creation (including user input) is handeled in the main program, while funtions that perform mathematical calculations are in a seperate file (["xl_calcs_fun.py"](xl_calcs_fun.py) A testing file (["test_xl_calcs_fun.py"](test_xl_calcs_fun.py)), as well as sample csv files ("DEL" and "WT") are also provided.
+The actual file creation (including user input) is handeled in the main program, while funtions that perform mathematical calculations are in a seperate file (["xl_calcs_fun.py"](xl_calcs_fun.py)). A testing file (["test_xl_calcs_fun.py"](test_xl_calcs_fun.py)), as well as sample csv files ("DEL" and "WT") are also provided.
