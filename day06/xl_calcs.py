@@ -1,11 +1,9 @@
-#Calc % for localizations: NC, ER total and nER cER
-#Calc avarage ER coverage
-
+import xl_calcs_fun as xf
 from tkinter import filedialog
 import os
 import pandas as pd
-import ast
-import numpy as np
+# import ast
+# import numpy as np
 from scipy import stats
 
 total_mrna = "Total mRNA per Cell"
@@ -45,11 +43,11 @@ def calc_tables(folder_path):
                 if my_strains[key] in file:
                     file_df = pd.read_csv(file)
                     file_df = file_df.loc[file_df[total_mrna] != 0]
-                    file_df[ner_col_rat] = calc_loc_ratio(file_df[total_mrna].tolist(), file_df[col_ner_title].tolist())
-                    file_df[cer_col_rat] = calc_loc_ratio(file_df[total_mrna].tolist(), file_df[col_cer_title].tolist())
-                    file_df[not_col_rat] = calc_loc_ratio(file_df[total_mrna].tolist(), file_df[not_col_title].tolist())
-                    file_df[tot_col_rat] = calc_comp_ratio(file_df[not_col_rat].tolist())
-                    file_df[ava_org_cov] = calc_ave_cov(file_df[org_cov_title].tolist())
+                    file_df[ner_col_rat] = xf.calc_loc_ratio(file_df[total_mrna].tolist(), file_df[col_ner_title].tolist())
+                    file_df[cer_col_rat] = xf.calc_loc_ratio(file_df[total_mrna].tolist(), file_df[col_cer_title].tolist())
+                    file_df[not_col_rat] = xf.calc_loc_ratio(file_df[total_mrna].tolist(), file_df[not_col_title].tolist())
+                    file_df[tot_col_rat] = xf.calc_comp_ratio(file_df[not_col_rat].tolist())
+                    file_df[ava_org_cov] = xf.calc_ave_cov(file_df[org_cov_title].tolist())
                     file_df.to_csv(f"{folder_path}{new_folder_string}{key} Calculation Table.csv")
                     print(f"file for {key} done")
     return my_strains
@@ -70,7 +68,7 @@ def statistics_table(folder_path, strain_dic):
                 file_df = pd.read_csv(file)
                 col = 0
                 for title in range(len(title_order)):
-                    stat = calc_col_ava(file_df[title_order[title]].tolist())
+                    stat = xf.calc_col_ava(file_df[title_order[title]].tolist())
                     stat_df.loc[col_list[col], key] = stat[0]
                     col += 1
                     stat_df.loc[col_list[col], key] = stat[1]
@@ -95,38 +93,6 @@ def get_sample_names():
         strain_ident = input(f"Specifict Identifier in sample {sample + 1} file names: ")
         strains_dict[strain_name] = strain_ident
     return strains_dict
-
-
-#Calc localization precentages from two columns
-def calc_loc_ratio(column1, column2):
-    ratio_list = []
-    for cell in range(len(column1)):
-        if column1[cell] == 0:
-            ratio_list.append(0)
-        else:
-            ratio_list.append(column2[cell]/column1[cell])
-    return ratio_list
-
-#Calc complementary ratio
-def calc_comp_ratio(column):
-    diff_list = []
-    for cell in range(len(column)):
-        diff_list.append(1 - column[cell])
-    return diff_list
-
-
-#Calc avarage of lists in column
-def calc_ave_cov(column):
-    cov_list = []
-    for cell in column:
-        list_cell = ast.literal_eval(cell)
-        cov_list.append(sum(list_cell)/len(list_cell))
-    
-    return cov_list
-
-#Calc avarages and standard error of whole column
-def calc_col_ava(column):
-    return [np.mean(column), stats.sem(column)]
 
 
 main()
