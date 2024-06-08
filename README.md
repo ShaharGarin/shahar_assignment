@@ -6,3 +6,4 @@ Here I'll put my assignments for the basic programming course
 * [4th Assignment](/day04/count.py)
 * [5th Assignment](/day05/)
 * [6th Assignment](/day06/)
+* [7th Assignment](/day07/fetch_proteins.py)
