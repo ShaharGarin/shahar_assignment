@@ -8,6 +8,7 @@ Here I'll put my assignments for the basic programming course
 * [6th Assignment](/day06/)
 * [7th Assignment](/day07/fetch_proteins.py)
 * [8th Assignment](day08/num_gui.py)
+* [9th Assignment](day09/analyze.py)
 
 
 * [Final Assignment: Analysis of mRNA-Organelle colocalization data](https://github.com/ShaharGarin/mRNA_organelle_Stats/)
